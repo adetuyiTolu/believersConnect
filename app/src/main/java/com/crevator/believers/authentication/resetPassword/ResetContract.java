@@ -1,5 +1,8 @@
 package com.crevator.believers.authentication.resetPassword;
 
+import android.content.Intent;
+
+import com.crevator.believers.BasePresenter;
 import com.crevator.believers.BaseView;
 
 /**
@@ -8,12 +11,15 @@ import com.crevator.believers.BaseView;
 
 public interface ResetContract {
 
-    interface Presenter {
-
+    interface Presenter extends BasePresenter<View> {
+        void resetPassword(String email);
+        void cancelReset();
+        void initializeAuth(String accountName, String accountType);
     }
 
     interface View extends BaseView<Presenter> {
-
+        void onCancel();
+        void onResultCompleted(Intent intent);
 
     }
 }

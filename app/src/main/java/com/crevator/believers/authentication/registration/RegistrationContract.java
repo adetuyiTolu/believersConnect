@@ -1,5 +1,7 @@
 package com.crevator.believers.authentication.registration;
 
+import android.content.Intent;
+
 import com.crevator.believers.BasePresenter;
 import com.crevator.believers.BaseView;
 
@@ -9,12 +11,15 @@ import com.crevator.believers.BaseView;
 
 public interface RegistrationContract {
 
-    interface Presenter extends BasePresenter<BaseView> {
+    interface Presenter extends BasePresenter<View> {
         void register(String email, String password);
+        void cancelRegistration();
+        void initializeAuth(String accountName,String accountType);
     }
 
     interface View extends BaseView<Presenter> {
-
+        void onCancel();
+        void onResultCompleted(Intent intent);
 
     }
 }

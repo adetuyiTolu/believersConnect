@@ -1,11 +1,9 @@
-package com.crevator.believers.authentication.registration;
+package com.crevator.believers.authentication.resetPassword;
 
 import android.accounts.AccountManager;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.crevator.believers.BaseView;
-import com.crevator.believers.authentication.Authenticator;
 import com.crevator.believers.data.domain.online.Online;
 import com.crevator.believers.data.domain.online.UserService;
 import com.crevator.believers.data.model.User;
@@ -21,19 +19,19 @@ import static com.crevator.believers.authentication.Authenticator.PARAM_USER_PAS
  * Created by Slimfit on 1/27/2017.
  */
 
-public class RegistrationPresenter implements RegistrationContract.Presenter {
-    private RegistrationContract.View mRegisterUserView;
+public class ResetPresenter implements ResetContract.Presenter {
+    private ResetContract.View mRegisterUserView;
     private UserService mUserService;
     private User mUser;
     String mAccountName;
     String mAccountType;
 
-    public RegistrationPresenter() {
+    public ResetPresenter() {
         mUserService = Online.provideUserService();
     }
 
     @Override
-    public void bindView(RegistrationContract.View view) {
+    public void bindView(ResetContract.View view) {
         this.mRegisterUserView = view;
         mRegisterUserView.setPresenter(this);
     }
@@ -45,10 +43,9 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
     }
 
     @Override
-    public void register(String email, String password) {
-        User user = new User();
-        user.setUserName(email);
-        mUserService.saveUser(user).enqueue(new Callback<User>() {
+    public void resetPassword(String email) {
+
+        mUserService.getUser(email).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser = response.body();
@@ -76,12 +73,12 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
     }
 
     @Override
-    public void cancelRegistration() {
+    public void cancelReset() {
         mRegisterUserView.onCancel();
     }
 
     @Override
-    public RegistrationContract.View getView() {
+    public ResetContract.View getView() {
         return mRegisterUserView;
     }
 

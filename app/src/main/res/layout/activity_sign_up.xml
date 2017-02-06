@@ -9,16 +9,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.crevator.believers.authentication.login.LoginActivity">
-<TextView
-    android:text="Crevator Login"
-    android:textSize="20sp"
-    android:padding="10dp"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:textColor="@color/colorPrimaryDark"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
+    tools:context="com.crevator.believers.authentication.registration.RegistrationActivity">
+
+    <EditText
+        android:id="@+id/fullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/userName"
         android:layout_width="match_parent"
@@ -29,26 +26,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/btnLlogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="performLogin"
-        android:text="Login" />
 
     <Button
-        android:id="@+id/btnSugnUp"
+        android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onSignUpClick"
         android:text="Register" />
 
     <Button
-        android:id="@+id/btnReset"
+        android:id="@+id/btnCancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onResetClick"
-        android:text="Reset" />
-
+        android:onClick="onCancelClick"
+        android:text="Cancel" />
 
 </LinearLayout>

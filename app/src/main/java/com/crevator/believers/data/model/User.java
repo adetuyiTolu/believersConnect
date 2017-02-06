@@ -1,6 +1,7 @@
 package com.crevator.believers.data.model;
 
 import java.io.Serializable;
+import java.io.StringReader;
 
 /**
  * Created by Slimfit on 1/23/2017.
@@ -12,6 +13,7 @@ public class User implements Serializable {
     private String firstName;
     private String lastName;
     private String pictureUrl;
+    private String authToken;
 
     public void setUserId(int userId) {
         this.userId = userId;
@@ -53,4 +55,16 @@ public class User implements Serializable {
         return userName;
     }
 
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
+    }
+
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    @Override
+    public String toString() {
+        return getFirstName()+"-"+getUserName();
+    }
 }

@@ -27,8 +27,14 @@ public interface UserService {
     @GET("users/{id}")
     Call<User> getUser(@Path("id") Long id);
 
+    @GET("users/{email}")
+    Call<User> getUser(@Path("id") String id);
+
     @POST("users")
     Call<User> saveUser(@Body User user);
+
+    @POST("users/login")
+    Call<User> loginUser(@Body User user);
 
     @PUT("users/{id}")
     Call<User> updateUser(@Path("id") Long id, @Body User user);
